@@ -1,0 +1,15 @@
+name: PHA_burn_severity_conda
+dependencies:
+- gdal
+- geopandas
+- jupyterlab
+- matplotlib
+- numpy
+- pandas
+- rioxarray
+- shapely
+- xarray
+
+
+
+
