@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../../../../../Volumes/M.2/imagery/masters/TF_basin-TPN"
 		}
 	]
 }
