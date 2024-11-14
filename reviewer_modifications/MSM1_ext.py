@@ -6,7 +6,11 @@ import os
 from math import e
 import matplotlib.pyplot as plt
 
-IDir = r'/Volumes/PhD/imagery/masters/output/dNBR'
+# Individual File:
+#IDir = r'/Volumes/PhD/imagery/masters/output/dNBR/basin_12042_dNBR.tif'
+
+# Directory:
+IDir = r'/Volumes/PhD/imagery/masters/output/dNBR/'
 ODir = r'/Volumes/PhD/imagery/masters/output/MSM1_extended/'
 
 
@@ -39,7 +43,8 @@ def MSM1(dnbr,
     # s1 multiplication assumes when function is called that val is defined globally in code.
     
     # Per pixel analysis, probability stored in empty list p1
-    R = [1.0, 2.0, 11.0, 12.0, 13.0, 14.0, 15.0]
+    #R = [1.0, 2.0, 11.0, 12.0, 13.0, 14.0, 15.0]
+    R = [19.56]
     for val in R:
         s1 = np.multiply(s, val)
         p1 = []
@@ -63,10 +68,20 @@ def MSM1(dnbr,
             outname = f"{basin}_MSM1_{int(val*4)}mmhr.tif"
             out_dnbr.rio.to_raster(os.path.join(ODir, outname), driver='GTIFF')
 
+# Functionality for directory
 
-for filename in os.listdir(IDir):
-    file = os.path.join(IDir, filename)
-    basin = filename.split('_')
-    basin = basin[1]
-    image = rxr.open_rasterio(file)
-    MSM1(image, True)
+# for filename in os.listdir(IDir):
+#     file = os.path.join(IDir, filename)
+#     basin = filename.split('_')
+#     basin = basin[1]
+#     image = rxr.open_rasterio(file)
+#     MSM1(image, True)
+
+
+# Functionality for individual basin
+
+# basin = IDir.split('_')
+# basin = basin[1]
+# image = rxr.open_rasterio(IDir)
+
+# x = MSM1(image, True)
